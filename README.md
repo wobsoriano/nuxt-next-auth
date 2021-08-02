@@ -68,22 +68,11 @@ export default {
     this.$nextAuth.signOut()
   }
 }
-```
 
-```js
 // Composition API
 import { useSession } from 'nuxt-next-auth' // can import other methods too
 
-export default defineComponent({
-  setup() {
-    const [session, loading] = useSession()
-
-    return {
-      session,
-      loading
-    }
-  }
-})
+const [session, loading] = useSession()
 ```
 
 - To persist the session in the Vuex store, add this to your actions in `store/index.js`:
