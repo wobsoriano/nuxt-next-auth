@@ -1,6 +1,6 @@
 {
-  "name": "nuxt-next-auth-test",
-  "version": "0.3.3",
+  "name": "nuxt-next-auth",
+  "version": "0.0.1",
   "description": "Use NextAuth for you Nuxt auth needs.",
   "keywords": [
     "vue",
