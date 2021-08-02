@@ -93,3 +93,22 @@ export const actions = {
   }
 }
 ```
+
+```js
+// any-component.vue
+export default {
+  mounted () {
+    const { session } = this.$store.state.auth
+  }
+}
+```
+
+- Create a your custom middleware for auth routes:
+
+```js
+export default ({ store, redirect }) => {
+  if (!store.state.auth.session) {
+    return redirect('/')
+  }
+}
+```
