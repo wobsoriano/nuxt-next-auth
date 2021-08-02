@@ -7,6 +7,7 @@ Authentication for Nuxt using [NextAuth](https://next-auth.js.org/).
   - [Get Setup](#get-setup)
   - [Use in your application](#use-in-your-application)
   - [Configuration](#configuration)
+  - [Using with TypeScript](#using-with-typescript)
   - [Example Code](#example-code)
 
 ## Usage
@@ -114,6 +115,20 @@ export default ({ store, redirect }) => {
 - [Pages](https://next-auth.js.org/configuration/pages)
 - [Callbacks](https://next-auth.js.org/configuration/callbacks)
 - [Events](https://next-auth.js.org/configuration/events)
+
+### Using with TypeScript
+
+Add `nuxt-next-auth` to the `compilerOptions.types` section of your project's `tsconfig.json` file:
+
+```json
+{
+  compilerOptions: {
+    "types": [
+      "nuxt-next-auth",
+    ]
+  },
+}
+```
 
 ### Example code
 
