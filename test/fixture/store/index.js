@@ -1,5 +1,5 @@
 export const actions = {
-  nuxtServerInit({ dispatch }, { req }) {
-    dispatch('auth/getSession', { req });
+  async nuxtServerInit({ dispatch }, { req }) {
+    await dispatch('auth/getSession', { req });
   }
 };

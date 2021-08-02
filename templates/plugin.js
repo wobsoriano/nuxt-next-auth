@@ -25,7 +25,7 @@ const initStore = async context => {
         },
         mutations: {
           setSession (state, payload) {
-            state.session = payload
+            state.session = payload;
           }
         },
         actions: {
