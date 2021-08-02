@@ -27,6 +27,16 @@ const initStore = async context => {
           setSession (state, payload) {
             state.session = payload
           }
+        },
+        actions: {
+            async getSession ({ commit }, { req }) {
+                try {
+                    const session = await getSession({ req });
+                    commit('setSession', session);
+                } catch (e) {
+                    commit('setSession', null);
+                }
+            }
         }
       }
     )
