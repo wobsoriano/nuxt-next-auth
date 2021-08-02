@@ -55,9 +55,8 @@ export default {
 
 - All methods from the [NextAuth.js client library](https://next-auth.js.org/getting-started/client) are available via global `$nextAuth` plugin:
 
-Options API
-
 ```js
+// Options API
 export default {
   mounted () {
     this.$nextAuth.getSession()
@@ -69,16 +68,9 @@ export default {
 }
 ```
 
-direct import from `nuxt-next-auth`
-
 ```js
-import { getSession, getCsrfToken } from 'nuxt-next-auth'
-```
-
-Composition API
-
-```js
-import { useSession } from 'nuxt-next-auth'
+// Composition API
+import { useSession } from 'nuxt-next-auth' // can import other methods too
 
 export default defineComponent({
   setup() {
