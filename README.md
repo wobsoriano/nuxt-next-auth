@@ -83,3 +83,13 @@ export default defineComponent({
   }
 })
 ```
+
+- To persist the session in the Vuex store, add this to your actions in `store/index.js`:
+
+```js
+export const actions = {
+  async nuxtServerInit({ dispatch }, { req }) {
+    await dispatch('auth/getSession', { req })
+  }
+}
+```
