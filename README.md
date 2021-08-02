@@ -7,6 +7,7 @@ Authentication for Nuxt using [NextAuth](https://next-auth.js.org/).
   - [Get Setup](#get-setup)
   - [Use in your application](#use-in-your-application)
   - [Configuration](#configuration)
+  - [Example Code](#example-code)
 
 ## Usage
 
@@ -123,6 +124,39 @@ export default ({ store, redirect }) => {
 - [Pages](https://next-auth.js.org/configuration/pages)
 - [Callbacks](https://next-auth.js.org/configuration/callbacks)
 - [Events](https://next-auth.js.org/configuration/events)
+
+### Example code
+
+```html
+<template>
+    <div>
+        <div v-if="session">
+            Signed in as {{ session.user.email }} <br />
+            <button @click="signOut">Sign out</button>
+        </div>
+        <div v-else>
+            Not signed in <br/>
+            <button @click="signIn">Sign in</button>
+        </div>
+    </div>
+</template>
+
+<script>
+import { defineComponent } from '@nuxtjs/composition-api'
+import { signIn, signOut, useSession } from 'nuxt-next-auth'
+
+export default defineComponent({
+    setup() {
+        const [session, loading] = useSession()
+
+        return {
+            session,
+            loading
+        }
+    }
+})
+</script>
+```
 
 ### Credits
 
