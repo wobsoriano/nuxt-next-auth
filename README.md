@@ -51,7 +51,7 @@ export default {
 }
 ```
 
-3. Use in your application
+### Use in your application
 
 - All methods from the [NextAuth.js client library](https://next-auth.js.org/getting-started/client) are available via global `$nextAuth` plugin:
 
@@ -103,7 +103,7 @@ export default {
 }
 ```
 
-- Create a your custom middleware for auth routes:
+- Create a middleware for auth routes:
 
 ```js
 export default ({ store, redirect }) => {
@@ -112,3 +112,13 @@ export default ({ store, redirect }) => {
   }
 }
 ```
+
+### Credits
+
+- [NextAuth.js](https://next-auth.js.org/) - Authentication for Next.js
+- [Auth Module](https://github.com/nuxt-community/auth-module) - Zero-boilerplate authentication support for Nuxt.js
+- [nuxt-oauth](https://github.com/SohoHouse/nuxt-oauth) - Simple OAuth2 integration for your Nuxt app
+
+### License
+
+[MIT License](http://opensource.org/licenses/MIT).
