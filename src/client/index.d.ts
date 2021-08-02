@@ -1,14 +1,14 @@
-import { IncomingMessage } from "http"
+import { IncomingMessage } from 'http';
 
-export type ProviderType = "oauth" | "email" | "credentials"
+export type ProviderType = 'oauth' | 'email' | 'credentials';
 
 export interface DefaultSession extends Record<string, unknown> {
   user?: {
-    name?: string | null
-    email?: string | null
-    image?: string | null
-  }
-  expires?: string
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+  };
+  expires?: string;
 }
 
 /**
@@ -23,8 +23,8 @@ export interface DefaultSession extends Record<string, unknown> {
 export interface Session extends Record<string, unknown>, DefaultSession {}
 
 export interface CtxOrReq {
-  req?: IncomingMessage
-  ctx?: { req: IncomingMessage }
+  req?: IncomingMessage;
+  ctx?: { req: IncomingMessage };
 }
 
 /***************
@@ -32,9 +32,9 @@ export interface CtxOrReq {
  **************/
 
 export type GetSessionOptions = CtxOrReq & {
-  event?: "storage" | "timer" | "hidden" | string
-  triggerEvent?: boolean
-}
+  event?: 'storage' | 'timer' | 'hidden' | string;
+  triggerEvent?: boolean;
+};
 
 /**
  * Vue composable that gives you access
@@ -42,7 +42,7 @@ export type GetSessionOptions = CtxOrReq & {
  *
  * [Documentation](https://next-auth.js.org/getting-started/client#usesession)
  */
-export function useSession(): [Session | null, boolean]
+export function useSession(): [Session | null, boolean];
 
 /**
  * Can be called client or server side to return a session asynchronously.
@@ -51,13 +51,15 @@ export function useSession(): [Session | null, boolean]
  *
  * [Documentation](https://next-auth.js.org/getting-started/client#getsession)
  */
-export function getSession(options?: GetSessionOptions): Promise<Session | null>
+export function getSession(
+  options?: GetSessionOptions
+): Promise<Session | null>;
 
 /**
  * Alias for `getSession`
  * @docs https://next-auth.js.org/getting-started/client#getsession
  */
-export const session: typeof getSession
+export const session: typeof getSession;
 
 /*******************
  * CSRF Token types
@@ -71,24 +73,24 @@ export const session: typeof getSession
  *
  * [Documentation](https://next-auth.js.org/getting-started/client#getcsrftoken)
  */
-export function getCsrfToken(ctxOrReq?: CtxOrReq): Promise<string | null>
+export function getCsrfToken(ctxOrReq?: CtxOrReq): Promise<string | null>;
 
 /**
  * Alias for `getCsrfToken`
  * @docs https://next-auth.js.org/getting-started/client#getcsrftoken
  */
-export const csrfToken: typeof getCsrfToken
+export const csrfToken: typeof getCsrfToken;
 
 /******************
  * Providers types
  *****************/
 
 export interface ClientSafeProvider {
-  id: string
-  name: string
-  type: ProviderType
-  signinUrl: string
-  callbackUrl: string
+  id: string;
+  name: string;
+  type: ProviderType;
+  signinUrl: string;
+  callbackUrl: string;
 }
 
 /**
@@ -101,37 +103,37 @@ export interface ClientSafeProvider {
 export function getProviders(): Promise<Record<
   string,
   ClientSafeProvider
-> | null>
+> | null>;
 
 /**
  * Alias for `getProviders`
  * @docs https://next-auth.js.org/getting-started/client#getproviders
  */
-export const providers: typeof getProviders
+export const providers: typeof getProviders;
 
 /****************
  * Sign in types
  ***************/
 
-export type RedirectableProvider = "email" | "credentials"
+export type RedirectableProvider = 'email' | 'credentials';
 
-export type SignInProvider = RedirectableProvider | string | undefined
+export type SignInProvider = RedirectableProvider | string | undefined;
 
 export interface SignInOptions extends Record<string, unknown> {
   /**
    * Defaults to the current URL.
    * @docs https://next-auth.js.org/getting-started/client#specifying-a-callbackurl
    */
-  callbackUrl?: string
+  callbackUrl?: string;
   /** @docs https://next-auth.js.org/getting-started/client#using-the-redirect-false-option */
-  redirect?: boolean
+  redirect?: boolean;
 }
 
 export interface SignInResponse {
-  error: string | undefined
-  status: number
-  ok: boolean
-  url: string | null
+  error: string | undefined;
+  status: number;
+  ok: boolean;
+  url: string | null;
 }
 
 /** Match `inputType` of `new URLSearchParams(inputType)` */
@@ -139,7 +141,7 @@ export type SignInAuthorisationParams =
   | string
   | string[][]
   | Record<string, string>
-  | URLSearchParams
+  | URLSearchParams;
 
 /**
  * Client-side method to initiate a signin flow
@@ -154,13 +156,13 @@ export function signIn<P extends SignInProvider = undefined>(
   authorizationParams?: SignInAuthorisationParams
 ): Promise<
   P extends RedirectableProvider ? SignInResponse | undefined : undefined
->
+>;
 
 /**
  * Alias for `signIn`
  * @docs https://next-auth.js.org/getting-started/client#signin
  */
-export const signin: typeof signIn
+export const signin: typeof signIn;
 
 /****************
  * Sign out types
@@ -168,14 +170,14 @@ export const signin: typeof signIn
 
 /** @docs https://next-auth.js.org/getting-started/client#using-the-redirect-false-option-1 */
 export interface SignOutResponse {
-  url: string
+  url: string;
 }
 
 export interface SignOutParams<R extends boolean = true> {
   /** @docs https://next-auth.js.org/getting-started/client#specifying-a-callbackurl-1 */
-  callbackUrl?: string
+  callbackUrl?: string;
   /** @docs https://next-auth.js.org/getting-started/client#using-the-redirect-false-option-1 */
-  redirect?: R
+  redirect?: R;
 }
 
 /**
@@ -186,33 +188,33 @@ export interface SignOutParams<R extends boolean = true> {
  */
 export function signOut<R extends boolean = true>(
   params?: SignOutParams<R>
-): Promise<R extends true ? undefined : SignOutResponse>
+): Promise<R extends true ? undefined : SignOutResponse>;
 
 /**
  * @docs https://next-auth.js.org/getting-started/client#signout
  * Alias for `signOut`
  */
-export const signout: typeof signOut
+export const signout: typeof signOut;
 /************************
  * SessionProvider types
  ***********************/
 
 /** @docs: https://next-auth.js.org/getting-started/client#options */
 export interface SessionProviderOptions {
-  baseUrl?: string
-  basePath?: string
-  clientMaxAge?: number
-  keepAlive?: number
+  baseUrl?: string;
+  basePath?: string;
+  clientMaxAge?: number;
+  keepAlive?: number;
 }
 
 /** @docs: https://next-auth.js.org/getting-started/client#options */
-export function setOptions(options: SessionProviderOptions): void
+export function setOptions(options: SessionProviderOptions): void;
 
 /**
  * Alias for `setOptions`
  * @docs: https://next-auth.js.org/getting-started/client#options
  */
-export const options: typeof setOptions
+export const options: typeof setOptions;
 
 /********************
  * Nuxt plugin typings
@@ -230,24 +232,24 @@ export interface NextAuthPlugin {
 declare module 'vue/types/vue' {
   // this.$nextAuth inside Vue components
   interface Vue {
-    $nextAuth: NextAuthPlugin
+    $nextAuth: NextAuthPlugin;
   }
 }
 
 declare module '@nuxt/types' {
   // nuxtContext.app.$nextAuth inside asyncData, fetch, plugins, middleware, nuxtServerInit
   interface NuxtAppOptions {
-    $nextAuth: NextAuthPlugin
+    $nextAuth: NextAuthPlugin;
   }
   // nuxtContext.$nextAuth
   interface Context {
-    $nextAuth: NextAuthPlugin
+    $nextAuth: NextAuthPlugin;
   }
 }
 
 declare module 'vuex/types/index' {
   // this.$nextAuth inside Vuex stores
   interface Store<S> {
-    $nextAuth: NextAuthPlugin
+    $nextAuth: NextAuthPlugin;
   }
 }

@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "Node",
+      "lib": [
+        "DOM"
+      ],
+      "esModuleInterop": true,
+      "strict": true,
+      "noEmit": true,
+      "baseUrl": ".",
+      "types": [
+        "@nuxt/types",
+        "@types/node",
+      ]
+    },
+    "exclude": [
+      "node_modules",
+      ".nuxt",
+      "dist"
+    ],
+    "include": ["./src/client"]
+}

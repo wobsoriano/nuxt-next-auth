@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "lib": [
+        "DOM"
+      ],
+      "esModuleInterop": true,
+      "allowJs": true,
+      "noEmit": true,
+      "baseUrl": ".",
+      "types": [
+        "@types/node",
+        "@types/jest",
+        "@nuxt/types",
+        "../src/client"
+      ]
+    }
+}

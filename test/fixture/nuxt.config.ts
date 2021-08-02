@@ -1,9 +1,10 @@
-import NuxtNextAuth from '../../module'
-import Providers from 'next-auth/providers'
+import Providers from 'next-auth/providers';
+import NuxtNextAuth from '../../module';
 
 export default {
     buildModules: [
-        '@nuxtjs/composition-api/module'
+        '@nuxtjs/composition-api/module',
+        '@nuxt/typescript-build'
     ],
     modules: [NuxtNextAuth],
     vite: {

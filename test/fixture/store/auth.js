@@ -1,9 +1,9 @@
 export const state = () => ({
-    session: null
+  session: null
 });
 
 export const mutations = {
-    setSession(state, payload) {
-        state.session = payload
-    }
+  setSession(state, payload) {
+    state.session = payload;
+  }
 };

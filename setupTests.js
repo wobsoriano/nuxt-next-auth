@@ -1,2 +1,2 @@
-require('jest-fetch-mock').enableMocks()
-jest.setTimeout(60000)
+require('jest-fetch-mock').enableMocks();
+jest.setTimeout(60000);
