@@ -7,7 +7,32 @@ import {
     signOut
 } from '~auth/runtime'
 
-export default (ctx, inject) => {
+const moduleName = 'auth'
+
+// Initialize auth store module
+const initStore = async context => {
+    if (!context.store) {
+      context.error('nuxt-next-auth requires a Vuex store!')
+      return
+    }
+  
+    context.store.registerModule(
+      moduleName,
+      {
+        namespaced: true,
+        state: {
+          session: null
+        },
+        mutations: {
+          setSession (state, payload) {
+            state.session = payload
+          }
+        }
+      }
+    )
+}
+  
+export default async (ctx, inject) => {
     const $nextAuth = {
         getCsrfToken,
         getProviders,
@@ -16,6 +41,7 @@ export default (ctx, inject) => {
         signIn,
         signOut
     }
+    await initStore(ctx);
     inject('nextAuth', $nextAuth);
     ctx.$nextAuth = $nextAuth;
 }
