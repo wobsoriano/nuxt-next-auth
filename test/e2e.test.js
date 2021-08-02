@@ -28,7 +28,15 @@ describe('nuxt-next-auth', () => {
       },
       "expires": "2021-09-01T05:43:45.869Z"
     }
-    const mockProviders = {"github":{"id":"github","name":"GitHub","type":"oauth","signinUrl":"http://localhost:3000/api/auth/signin/github","callbackUrl":"http://localhost:3000/api/auth/callback/github"}}
+    const mockProviders = {
+      "github": {
+        "id":"github",
+        "name":"GitHub",
+        "type":"oauth",
+        "signinUrl":"http://localhost:3000/api/auth/signin/github",
+        "callbackUrl":"http://localhost:3000/api/auth/callback/github"
+      }
+    }
 
     test('Initial state', async () => {
       fetch
