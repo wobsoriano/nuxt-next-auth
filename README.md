@@ -107,6 +107,7 @@ export default {
 - Create a middleware for auth routes:
 
 ```js
+// middleware/auth.js
 export default ({ store, redirect }) => {
   if (!store.state.auth.session) {
     return redirect('/')
