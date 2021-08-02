@@ -55,7 +55,7 @@ export default {
 
 ### Use in your application
 
-- All methods from the [NextAuth.js client library](https://next-auth.js.org/getting-started/client) are available via global `$nextAuth` plugin:
+- All methods from the [NextAuth.js client library](https://next-auth.js.org/getting-started/client) can be imported in the `nuxt-next-auth` module or accessed via global `$nextAuth` plugin:
 
 ```js
 // Options API
