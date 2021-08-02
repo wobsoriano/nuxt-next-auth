@@ -6,6 +6,7 @@ Authentication for Nuxt using [NextAuth](https://next-auth.js.org/).
   - [Requirements](#requirements)
   - [Get Setup](#get-setup)
   - [Use in your application](#use-in-your-application)
+  - [Configuration](#configuration)
 
 ## Usage
 
@@ -112,6 +113,15 @@ export default ({ store, redirect }) => {
   }
 }
 ```
+
+### Configuration
+
+- [Options](https://next-auth.js.org/configuration/options)
+- [Providers](https://next-auth.js.org/configuration/providers)
+- [Databases](https://next-auth.js.org/configuration/databases)
+- [Pages](https://next-auth.js.org/configuration/pages)
+- [Callbacks](https://next-auth.js.org/configuration/callbacks)
+- [Events](https://next-auth.js.org/configuration/events)
 
 ### Credits
 
