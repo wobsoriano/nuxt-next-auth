@@ -10,7 +10,7 @@ import {
 const moduleName = 'auth'
 
 // Initialize auth store module
-const initStore = async context => {
+const initStore = context => {
     if (!context.store) {
       context.error('nuxt-next-auth requires a Vuex store!')
       return
