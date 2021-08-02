@@ -151,7 +151,9 @@ export default defineComponent({
 
         return {
             session,
-            loading
+            loading,
+            signIn,
+            signOut
         }
     }
 })
