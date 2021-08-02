@@ -1,6 +1,6 @@
 # Nuxt NextAuth
 
-Authentication for Nuxt using NextAuth.
+Authentication for Nuxt using [NextAuth](https://next-auth.js.org/).
 
 - [Usage](#usage)
   - [Requirements](#requirements)
@@ -23,7 +23,7 @@ Authentication for Nuxt using NextAuth.
 yarn add nuxt-next-auth
 ```
 
-2. Add to your `nuxt.config.js` and configure:
+2. Add to your `nuxt.config.js` and configure `next-auth` [options](https://next-auth.js.org/configuration/options):
 
 ```js
 import Providers from 'next-auth/providers';
@@ -51,4 +51,43 @@ export default {
 }
 ```
 
-// TODO
+3. Use in your application
+
+- All methods from the [NextAuth.js client library](https://next-auth.js.org/getting-started/client) are available via global `$nextAuth` plugin:
+
+Options API
+
+```js
+export default {
+  mounted () {
+    this.$nextAuth.getSession()
+    this.$nextAuth.getCsrfToken()
+    this.$nextAuth.getProviders()
+    this.$nextAuth.signIn()
+    this.$nextAuth.signOut()
+  }
+}
+```
+
+direct import from `nuxt-next-auth`
+
+```js
+import { getSession, getCsrfToken } from 'nuxt-next-auth'
+```
+
+Composition API
+
+```js
+import { useSession } from 'nuxt-next-auth'
+
+export default defineComponent({
+  setup() {
+    const [session, loading] = useSession()
+
+    return {
+      session,
+      loading
+    }
+  }
+})
+```
