@@ -122,7 +122,7 @@ Add `nuxt-next-auth` to the `compilerOptions.types` section of your project's `t
 
 ```json
 {
-  compilerOptions: {
+  "compilerOptions": {
     "types": [
       "nuxt-next-auth",
     ]
