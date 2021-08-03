@@ -36,7 +36,6 @@ import Providers from 'next-auth/providers';
 
 export default {
   modules: [
-    '@nuxtjs/composition-api/module',
     'nuxt-next-auth/module'
   ],
 
