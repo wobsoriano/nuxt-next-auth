@@ -10,7 +10,6 @@ Authentication module for Nuxt using [NextAuth](https://next-auth.js.org/).
   - [Using with TypeScript](#using-with-typescript)
   - [Example Code](#example-code)
 - [Develop](#develop)
-  - [Contributing](#contributing)
   - [Credits](#credits)
   - [License](#license)
 
