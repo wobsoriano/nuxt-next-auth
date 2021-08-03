@@ -185,7 +185,7 @@ yarn test
 
 ### Running locally
 
-To run the fixture Nuxt app (`/test/e2e/fixture`) locally, make sure to:
+To run the fixture Nuxt app (`/test/fixture`) locally, make sure to:
 ```bash
 cp test/fixture/.env.example test/fixture/.env
 ```
