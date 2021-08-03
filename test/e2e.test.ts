@@ -121,6 +121,7 @@ describe('nuxt-next-auth', () => {
 
     // Check session using getSession
     const session = await page.evaluate(() =>
+      // @ts-ignore
       window.$nuxt.$nextAuth.getSession()
     );
     expect(session).toBeNull();
