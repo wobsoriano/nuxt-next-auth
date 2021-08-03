@@ -35,6 +35,7 @@ yarn add nuxt-next-auth
 import Providers from 'next-auth/providers';
 
 export default {
+  buildModules: ['@nuxtjs/composition-api/module'],
   modules: [
     'nuxt-next-auth/module'
   ],

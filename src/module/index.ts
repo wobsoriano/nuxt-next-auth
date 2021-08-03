@@ -45,8 +45,6 @@ const NextAuthModule: Module<Record<any, any>> = function (moduleOptions) {
     moduleOptions
   ) as NextAuthOptions;
 
-  // TODO: Mark composition api as optional
-
   // Add custom express server middleware
   this.addServerMiddleware({
     path: '/api',
