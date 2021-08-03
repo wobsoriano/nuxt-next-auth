@@ -40,6 +40,8 @@ describe('nuxt-next-auth', () => {
       .once(JSON.stringify(mockProviders)); // GET api/auth/providers
 
     const page = await createPage('/');
+    await page.waitForFunction('!!window.$nuxt');
+
     const session = await page.evaluate(() =>
       // @ts-ignore
       window.$nuxt.$nextAuth.getSession()
@@ -71,6 +73,7 @@ describe('nuxt-next-auth', () => {
 
     // GitHub callback
     await page.waitForNavigation();
+    await page.waitForFunction('!!window.$nuxt');
 
     // Re-check session state
     const session = await page.evaluate(() =>
@@ -101,6 +104,7 @@ describe('nuxt-next-auth', () => {
         cookies: loginCookies
       }
     });
+    await page.waitForFunction('!!window.$nuxt');
 
     // Check session state
     const session = await page.evaluate(() =>
