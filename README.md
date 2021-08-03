@@ -9,6 +9,10 @@ Authentication module for Nuxt using [NextAuth](https://next-auth.js.org/).
   - [Configuration](#configuration)
   - [Using with TypeScript](#using-with-typescript)
   - [Example Code](#example-code)
+- [Develop](#develop)
+  - [Contributing](#contributing)
+  - [Credits](#credits)
+  - [License](#license)
 
 ## Usage
 
@@ -169,6 +173,27 @@ export default defineComponent({
 })
 </script>
 ```
+
+## Develop
+
+```bash
+git clone https://github.com/wobsoriano/nuxt-next-auth.git
+cd nuxt-next-auth
+yarn
+yarn test
+```
+
+### Running locally
+
+To run the fixture Nuxt app (`/test/e2e/fixture`) locally, make sure to:
+```bash
+cp test/fixture/.env.example test/fixture/.env
+```
+and populate with your real values. Then, run:
+```
+yarn dev
+```
+To boot the app locally.
 
 ### Credits
 
