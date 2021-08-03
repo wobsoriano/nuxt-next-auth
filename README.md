@@ -1,10 +1,10 @@
 # Nuxt NextAuth
 
-Authentication for Nuxt using [NextAuth](https://next-auth.js.org/).
+Authentication module for Nuxt using [NextAuth](https://next-auth.js.org/).
 
 - [Usage](#usage)
   - [Requirements](#requirements)
-  - [Get Setup](#get-setup)
+  - [Setup](#setup)
   - [Use in your application](#use-in-your-application)
   - [Configuration](#configuration)
   - [Using with TypeScript](#using-with-typescript)
@@ -18,7 +18,7 @@ Authentication for Nuxt using [NextAuth](https://next-auth.js.org/).
 - [Vuex store](https://nuxtjs.org/guide/vuex-store)
 - [Composition API](https://composition-api.nuxtjs.org/) - automatically installed
 
-### Get Setup
+### Setup
 
 1. Install the dependency:
 
