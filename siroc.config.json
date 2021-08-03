@@ -1,0 +1,6 @@
+{
+    "rollup": {
+        "input": "src/client/index.js",
+        "external": ["@nuxtjs/composition-api"]
+    }
+}

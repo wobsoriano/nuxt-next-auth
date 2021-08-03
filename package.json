@@ -1,0 +1,52 @@
+{
+  "name": "nuxt-next-auth-test",
+  "version": "0.3.3",
+  "description": "Use NextAuth for you Nuxt auth needs.",
+  "keywords": [
+    "vue",
+    "nuxt",
+    "next",
+    "auth"
+  ],
+  "homepage": "https://github.com/nuxt-next-auth/#readme",
+  "bugs": "https://github.com/nuxt-next-auth/issues",
+  "repository": "https://github.com/nuxt-next-auth",
+  "license": "MIT",
+  "author": "Robert Soriano <sorianorobertc@gmail.com>",
+  "exports": {
+    ".": "./dist/client/index.js",
+    "./module": "./dist/module/index.js"
+  },
+  "main": "./dist/client/index.js",
+  "types": "./dist/client/index.d.ts",
+  "files": [
+    "dist",
+    "templates",
+    "module.js"
+  ],
+  "scripts": {
+    "dev": "nuxt test/fixture",
+    "build": "rm -rf build && siroc build",
+    "build:watch": "siroc build --watch",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@nuxtjs/composition-api": "^0.26.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "next-auth": "^3.27.3",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@nuxt/test-utils": "^0.2.2",
+    "jest": "^27.0.6",
+    "jest-fetch-mock": "^3.0.3",
+    "nuxt": "^2.15.7",
+    "playwright": "^1.13.1",
+    "prettier": "^2.3.2",
+    "siroc": "^0.14.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
