@@ -39,7 +39,11 @@ function nextAuthApiRoutesHandler(options: NextAuthOptions) {
 
 const NextAuthModule: Module<Record<any, any>> = function (moduleOptions) {
   // Merge all option sources
-  const options = Object.assign({}, this.options.nextAuth, moduleOptions);
+  const options = Object.assign(
+    {},
+    this.options.nextAuth,
+    moduleOptions
+  ) as NextAuthOptions;
 
   // TODO: Mark composition api as optional
 
