@@ -46,12 +46,12 @@ describe('nuxt-next-auth', () => {
       .once(JSON.stringify(mockProviders)); // GET api/auth/providers
 
     const page = await createPage('/');
-    // @ts-ignore
-    const state = await page.evaluate(() => window.__NUXT__.state);
+    const session = await page.evaluate(() =>
+      // @ts-ignore
+      window.$nuxt.$nextAuth.getSession()
+    );
 
-    expect(state.auth).toEqual({
-      session: null
-    });
+    expect(session).toBeNull();
 
     await page.close();
   });
@@ -79,9 +79,11 @@ describe('nuxt-next-auth', () => {
     await page.waitForNavigation();
 
     // Re-check session state
-    // @ts-ignore
-    const state = await page.evaluate(() => window.__NUXT__.state);
-    expect(state.auth.session).toEqual(mockSession);
+    const session = await page.evaluate(() =>
+      // @ts-ignore
+      window.$nuxt.$nextAuth.getSession()
+    );
+    expect(session).toEqual(mockSession);
 
     const updatedHtml = await page.innerHTML('body');
     expect(updatedHtml).toContain(
@@ -107,9 +109,11 @@ describe('nuxt-next-auth', () => {
     });
 
     // Check session state
-    // @ts-ignore
-    const state = await page.evaluate(() => window.__NUXT__.state);
-    expect(state.auth.session).toEqual(mockSession);
+    const session = await page.evaluate(() =>
+      // @ts-ignore
+      window.$nuxt.$nextAuth.getSession()
+    );
+    expect(session).toEqual(mockSession);
 
     // Log out
     const body = await page.innerHTML('body');
@@ -120,11 +124,11 @@ describe('nuxt-next-auth', () => {
     await page.waitForFunction('!!window.$nuxt');
 
     // Check session using getSession
-    const session = await page.evaluate(() =>
+    const updatedSession = await page.evaluate(() =>
       // @ts-ignore
       window.$nuxt.$nextAuth.getSession()
     );
-    expect(session).toBeNull();
+    expect(updatedSession).toBeNull();
 
     await page.close();
   });
