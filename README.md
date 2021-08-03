@@ -88,7 +88,7 @@ export const actions = {
 ```
 
 ```js
-// any-component.vue
+// nuxt-next-auth uses auth as module name
 export default {
   mounted () {
     const { session } = this.$store.state.auth
@@ -104,6 +104,11 @@ export default ({ store, redirect }) => {
   if (!store.state.auth.session) {
     return redirect('/')
   }
+}
+
+// any-secure-page.vue
+export default {
+  middleware: ['auth']
 }
 ```
 
