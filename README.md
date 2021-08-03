@@ -1,6 +1,6 @@
 # Nuxt NextAuth
 
-Authentication module for Nuxt using [NextAuth](https://next-auth.js.org/).
+Experimental authentication module for Nuxt using [NextAuth](https://next-auth.js.org/).
 
 - [Usage](#usage)
   - [Requirements](#requirements)
