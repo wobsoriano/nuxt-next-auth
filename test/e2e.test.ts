@@ -8,12 +8,6 @@ describe('nuxt-next-auth', () => {
 
   setupTest({
     browser: true,
-    browserOptions: {
-      type: 'chromium',
-      launch: {
-        headless: false
-      }
-    },
     config: {
       server: {
         port: 3000

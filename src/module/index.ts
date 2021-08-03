@@ -8,7 +8,7 @@ import type { Module } from '@nuxt/types';
 // @ts-ignore
 global.fetch = fetch;
 
-function moduleHandler(options: NextAuthOptions) {
+function nextAuthApiRoutesHandler(options: NextAuthOptions) {
   const app = express();
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
@@ -41,13 +41,12 @@ const NextAuthModule: Module<Record<any, any>> = function (moduleOptions) {
   // Merge all option sources
   const options = Object.assign({}, this.options.nextAuth, moduleOptions);
 
-  // TODO: Check providers supplied
   // TODO: Mark composition api as optional
 
   // Add custom express server middleware
   this.addServerMiddleware({
     path: '/api',
-    handler: moduleHandler(options)
+    handler: nextAuthApiRoutesHandler(options)
   });
 
   // Add plugin
