@@ -2,6 +2,8 @@
 
 Experimental authentication module for Nuxt using [NextAuth](https://next-auth.js.org/).
 
+Demo: https://nuxt-next-auth-demo.vercel.app/
+
 - [Usage](#usage)
   - [Requirements](#requirements)
   - [Setup](#setup)
