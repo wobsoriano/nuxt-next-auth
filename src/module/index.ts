@@ -61,7 +61,7 @@ const NextAuthModule: Module<Record<any, any>> = function (moduleOptions) {
   this.options.plugins.push(resolve(this.options.buildDir, dst));
 
   // Transpile and alias auth src
-  // Inspirted from https://github.com/nuxt-community/auth-module/blob/dev/templates/plugin.js
+  // Inspired by https://github.com/nuxt-community/auth-module/blob/dev/templates/plugin.js
   const runtime = resolve(__dirname, '../client');
   this.options.alias['~auth/runtime'] = runtime;
   this.options.build.transpile?.push(__dirname);
