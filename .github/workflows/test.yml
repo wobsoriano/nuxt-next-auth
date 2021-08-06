@@ -19,3 +19,8 @@ jobs:
         run: yarn build
       - name: Run tests
         run: yarn test
+        env:
+          GITHUB_CLIENT_ID: ${{ env.NEXTAUTH_GITHUB_CLIENT_ID }}
+          GITHUB_CLIENT_SECRET: ${{ env.NEXTAUTH_GITHUB_CLIENT_SECRET }}
+          GITHUB_EMAIL: ${{ env.NEXTAUTH_GITHUB_EMAIL }}
+          GITHUB_PASSWORD: ${{ env.NEXTAUTH_GITHUB_PASSWORD }}

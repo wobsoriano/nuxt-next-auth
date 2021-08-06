@@ -67,8 +67,8 @@ describe('nuxt-next-auth', () => {
 
     // Github.com login page
     expect(page.url()).toContain('https://github.com/login');
-    await page.type('#login_field', process.env.NEXTAUTH_GITHUB_EMAIL);
-    await page.type('#password', process.env.NEXTAUTH_GITHUB_PASSWORD);
+    await page.type('#login_field', process.env.GITHUB_EMAIL);
+    await page.type('#password', process.env.GITHUB_PASSWORD);
     await page.click('input[name=commit]');
 
     // GitHub callback
@@ -84,7 +84,7 @@ describe('nuxt-next-auth', () => {
 
     const updatedHtml = await page.innerHTML('body');
     expect(updatedHtml).toContain(
-      `<p>Signed in as ${process.env.NEXTAUTH_GITHUB_EMAIL}</p>`
+      `<p>Signed in as ${process.env.GITHUB_EMAIL}</p>`
     );
 
     const context = await page.context();
