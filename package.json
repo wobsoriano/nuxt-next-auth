@@ -37,7 +37,7 @@
     "@nuxtjs/composition-api": "^0.26.0",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
-    "next-auth": "^3.27.3",
+    "next-auth": "^4.0.2",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {

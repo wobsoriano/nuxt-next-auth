@@ -1,7 +1,9 @@
 import { resolve, join } from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
-import NextAuth, { NextAuthOptions } from 'next-auth';
+import type { IncomingRequest, NextAuthOptions } from 'next-auth';
+import type { NextAuthAction } from 'next-auth/lib/types';
+import { NextAuthHandler } from 'next-auth/core';
 import fetch from 'node-fetch';
 import type { Module } from '@nuxt/types';
 
@@ -14,24 +16,46 @@ function nextAuthApiRoutesHandler(options: NextAuthOptions) {
   app.use(express.json());
   app.use(cookieParser());
 
-  app.get('/auth/*', (req, res) => {
-    const nextauth = req.path.split('/');
-    nextauth.splice(0, 2);
-    req.query.nextauth = nextauth;
+  app.get('/auth/*', async (req) => {
+    const nextauth = req.url?.split('/');
 
-    // @ts-expect-error Format of next-auth
-    // req is diff from express
-    NextAuth(req, res, options);
+    const nextRequest: IncomingRequest = {
+      host: process.env.NEXTAUTH_URL,
+      body: req.body,
+      cookies: req.cookies,
+      query: req.query,
+      headers: req.headers,
+      method: req.method,
+      action: nextauth?.[1] as NextAuthAction,
+      providerId: nextauth?.[2]?.split('?')[0],
+      error: nextauth?.[2]?.split('?')[0]
+    };
+
+    await NextAuthHandler({
+      req: nextRequest,
+      options
+    });
   });
 
-  app.post('/auth/*', (req, res) => {
-    const nextauth = req.path.split('/');
-    nextauth.splice(0, 2);
-    req.query.nextauth = nextauth;
+  app.post('/auth/*', async (req) => {
+    const nextauth = req.url?.split('/');
 
-    // @ts-expect-error Format of next-auth
-    // req is diff from express
-    NextAuth(req, res, options);
+    const nextRequest: IncomingRequest = {
+      host: process.env.NEXTAUTH_URL,
+      body: req.body,
+      cookies: req.cookies,
+      query: req.query,
+      headers: req.headers,
+      method: req.method,
+      action: nextauth?.[1] as NextAuthAction,
+      providerId: nextauth?.[2]?.split('?')[0],
+      error: nextauth?.[2]?.split('?')[0]
+    };
+
+    await NextAuthHandler({
+      req: nextRequest,
+      options
+    });
   });
 
   return app;
