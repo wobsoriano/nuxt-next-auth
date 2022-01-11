@@ -120,7 +120,7 @@ export default {
 ### Configuration
 
 - [Options](https://next-auth.js.org/configuration/options)
-- [Providers](https://next-auth.js.org/configuration/providers)
+- [Providers](https://next-auth.js.org/providers/overview)
 - [Databases](https://next-auth.js.org/configuration/databases)
 - [Pages](https://next-auth.js.org/configuration/pages)
 - [Callbacks](https://next-auth.js.org/configuration/callbacks)
